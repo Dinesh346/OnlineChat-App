@@ -14,7 +14,7 @@ export const signup= async(req,res)=>{
         const user=await User.findOne({email});
 
         if(User){
-            return res.json({success:false, message:"Missing Details"})
+            return res.json({success:false, message:"User already exist"})
         }
 
         const salt=await bcrypt.genSalt(10);
